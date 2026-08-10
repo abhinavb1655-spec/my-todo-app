@@ -1,60 +1,26 @@
-let tasks =
-    
-    JSON.parse(localStorage.getItem("tasks")) || [];
-
-function displayTasks() {
-    let list = document.getElementById("list");
-    list.innerHTML = "";
-
-    tasks.forEach((task, index) => {
-        let item = document.createElement("li");
-
-        item.innerHTML = `
-            <span onclick="completeTask(${index})"
-                  style="text-decoration:${task.completed ? 'line-through' : 'none'}">
-                ${task.text}
-            </span>
-
-            <button onclick="deleteTask(${index})">🗑️</button>
-        `;
-
-        list.appendChild(item);
-    });
-}
-
 function addTask() {
-    let input = document.getElementById("task");
-    let text = input.value.trim();
+    const input = document.getElementById("task");
+    const list = document.getElementById("list");
 
-    if (text === "") {
+    if (input.value.trim() === "") {
         alert("Enter a task!");
         return;
     }
 
-    tasks.push({
-        text: text,
-        completed: false
-    });
+    const item = document.createElement("li");
 
-    saveTasks();
+    const text = document.createElement("span");
+    text.textContent = input.value;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = " 🗑️";
+    deleteButton.onclick = function () {
+        item.remove();
+    };
+
+    item.appendChild(text);
+    item.appendChild(deleteButton);
+    list.appendChild(item);
+
     input.value = "";
-    displayTasks();
 }
-
-function completeTask(index) {
-    tasks[index].completed = !tasks[index].completed;
-    saveTasks();
-    displayTasks();
-}
-
-function deleteTask(index) {
-    tasks.splice(index, 1);
-    saveTasks();
-    displayTasks();
-}
-
-function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-displayTasks();
