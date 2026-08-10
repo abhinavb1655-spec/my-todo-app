@@ -13,7 +13,7 @@ function addTask() {
     text.textContent = input.value;
 
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "DELETE";
+    deleteButton.textContent = "🗑️";
     deleteButton.style.marginLeft = "10px";
 
     deleteButton.onclick = function() {
