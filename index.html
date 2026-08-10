@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Todo App</title>
+</head>
+<body>
+
+    <h1>My Todo App</h1>
+
+    <input type="text" id="task" placeholder="Enter a task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+            let task = document.getElementById("task").value;
+
+            if (task === "") {
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.textContent = task;
+
+            document.getElementById("taskList").appendChild(li);
+
+            document.getElementById("task").value = "";
+        }
+    </script>
+
+</body>
+</html>
