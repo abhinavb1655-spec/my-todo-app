@@ -5,13 +5,20 @@ body {
 
     background: linear-gradient(
         135deg,
-        #ff9933 0%,
-        #ffffff 48%,
-        #ffffff 52%,
-        #138808 100%
+        #ff9933,
+        #ffffff 50%,
+        #138808
     );
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.todo-container {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
