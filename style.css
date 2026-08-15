@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -6,19 +10,102 @@ body {
     background: linear-gradient(
         135deg,
         #ff9933,
-        #ffffff 50%,
+        #ffffff,
         #138808
     );
 
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-.todo-container {
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
+.app {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.9);
     padding: 25px;
+    border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#task {
+    flex: 1;
+    padding: 13px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.input-area button {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #138808;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.input-area button:hover {
+    transform: scale(1.05);
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    background: white;
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+li span {
+    flex: 1;
+    word-break: break-word;
+}
+
+li button {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background: #ff9933;
+    color: white;
+}
+
+.delete-btn {
+    background: #e53935;
+    color: white;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
 }
